@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="650.0" prefWidth="950.0" spacing="15.0" 
+      stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.mycompany.sportsequipmentsystem.PrimaryController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <Label styleClass="header-label" text="Seri Murni Secondary School - Sports Equipment Borrowing System" />
+      
+      <HBox spacing="20.0">
+         <children>
+            <GridPane hgap="10.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints minWidth="120.0" />
+                  <ColumnConstraints minWidth="200.0" />
+               </columnConstraints>
+               <children>
+                  <Label text="Student Name:" />
+                  <TextField fx:id="txtStudentName" GridPane.columnIndex="1" />
+                  
+                  <Label text="Student ID:" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtStudentId" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  
+                  <Label text="Equipment Name:" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtEquipmentName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  
+                  <Label text="Category:" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="cbCategory" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  
+                  <Label text="Borrow Date:" GridPane.rowIndex="4" />
+                  <DatePicker fx:id="dpBorrowDate" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  
+                  <Label text="Return Date:" GridPane.rowIndex="5" />
+                  <DatePicker fx:id="dpReturnDate" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  
+                  <Label text="Condition:" GridPane.rowIndex="6" />
+                  <ComboBox fx:id="cbCondition" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  
+                  <Label text="Borrowing Status:" GridPane.rowIndex="7" />
+                  <ComboBox fx:id="cbStatus" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+               </children>
+            </GridPane>
+
+            <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox spacing="10.0">
+                     <children>
+                        <TextField fx:id="txtSearch" promptText="Search Student ID or Equipment..." HBox.hgrow="ALWAYS" />
+                        <Button onAction="#handleSearch" styleClass="btn-search" text="Search" />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="tableView" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colId" prefWidth="40.0" text="ID" />
+                        <TableColumn fx:id="colStudentName" prefWidth="110.0" text="Student Name" />
+                        <TableColumn fx:id="colStudentId" prefWidth="80.0" text="Student ID" />
+                        <TableColumn fx:id="colEquipmentName" prefWidth="100.0" text="Equipment" />
+                        <TableColumn fx:id="colCategory" prefWidth="90.0" text="Category" />
+                        <TableColumn fx:id="colBorrowDate" prefWidth="85.0" text="Borrow Date" />
+                        <TableColumn fx:id="colReturnDate" prefWidth="85.0" text="Return Date" />
+                        <TableColumn fx:id="colCondition" prefWidth="80.0" text="Condition" />
+                        <TableColumn fx:id="colStatus" prefWidth="80.0" text="Status" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+
+      <HBox alignment="CENTER" spacing="15.0">
+         <children>
+            <Button onAction="#handleAdd" styleClass="btn-add" text="Add Record" />
+            <Button onAction="#handleUpdate" styleClass="btn-update" text="Update Record" />
+            <Button onAction="#handleDelete" styleClass="btn-delete" text="Delete Record" />
+            <Button onAction="#handleReset" styleClass="btn-reset" text="Reset Fields" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
